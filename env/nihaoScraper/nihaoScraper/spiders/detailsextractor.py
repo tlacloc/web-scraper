@@ -12,8 +12,10 @@ class detailsExtractorSpider(scrapy.Spider):
 	targets = pd.read_json('products.json')
 
 	# urls from file
-	#start_urls = targets["link"].values.tolist()
-	start_urls = ['https://www.nihaojewelry.com/es/conjunto-de-pulsera-cuernos-luna-con-diamantes-nhgy326659.html']
+	start_urls = targets["link"].values.tolist()
+
+	# test url
+	#start_urls = ['https://www.nihaojewelry.com/es/conjunto-de-pulsera-cuernos-luna-con-diamantes-nhgy326659.html']
 
 	def parse(self, response):
 
