@@ -3,19 +3,6 @@ import pandas as pd
 
 
 # update: 23 may 2021
-#
-#
-#
-# search for sub categories in the page
-# return a json file with
-# subcategories = {
-#			'category' = category name
-#			'subcategory' = subcategory name
-#			'url = subcategory url'
-# }
-#
-#
-
 
 class subcategoryExtractorSpider(scrapy.Spider):
 	name = 'subcategorySpider'
@@ -28,10 +15,11 @@ class subcategoryExtractorSpider(scrapy.Spider):
 	def parse(self, response):
 
 		#
+		targets = pd.read_json('categories.json')
 		subcategories = response.css('div.list-content.j_option_list.j_category_type')
 		for subcategory in subcategories.css('a'):
 			yield {
-#			'category' = category name
+			#'category' : targets[targets['link'] == response.request.url]['category'],
 			'subcategory': subcategory.css('a::text').get(),
 			'link': subcategory.css('a').attrib['href']
  			}
