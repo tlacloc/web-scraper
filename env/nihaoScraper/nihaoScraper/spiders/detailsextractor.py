@@ -37,5 +37,6 @@ class detailsExtractorSpider(scrapy.Spider):
 		yield { 
 			'item id': buy_info.css('div.remark span::text').get().replace('Item No.: ',''),
 			'product name': response.css('title::text').get(),
+			'link': response.request.url,
 			'data': json.loads(json_data)
 			}
