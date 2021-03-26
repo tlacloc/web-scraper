@@ -19,7 +19,7 @@ La spider que analiza todos los detalles de los productos desde el link padre es
 Esto con la facilidade de evitar después una limpieza de variables como se hacía anteriormente en las spiders: `categorySpider`, `subcategorySpider`, `productsSpider` y `detailsSpider`. Igual anida los valores de cada una de estas para poder heredar valores entre funciones y facilitar la categorización de estos agregándoles de una vez el link del producto, su categoría y subcategoría, para correrlo es recomendable abrir un env de python en el cual tengamos instalado scrapy, después de esto solo es cosa de correr
 
 
-				scrapy crawl categorySpider -O <name>.json
+				scrapy crawl nihao -O <name>.json
 
 
 El nombre y el tipo de archivo puede ser cualquiera, hasta un csv, recomiendo usar un json por si alguno de los productos tenga alguna coma o algún valor que pueda aterar los datos.
