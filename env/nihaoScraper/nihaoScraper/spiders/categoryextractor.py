@@ -26,7 +26,9 @@ class categoryExtractorSpider(scrapy.Spider):
 		cat_table = response.css('div.menu-head_child')
 		categories = cat_table.css('div.menu-row')
 
-		for category in categories: # in each category
+		# in each category
+		# but skips the very first one
+		for category in categories[1:]: 
 
 			# for print as json
 			yield {

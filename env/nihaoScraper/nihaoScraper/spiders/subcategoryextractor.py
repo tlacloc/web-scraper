@@ -18,8 +18,15 @@ class subcategoryExtractorSpider(scrapy.Spider):
 		targets = pd.read_json('categories.json')
 		subcategories = response.css('div.list-content.j_option_list.j_category_type')
 		for subcategory in subcategories.css('a'):
-			yield {
+		    yield {
 			#'category' : targets[targets['link'] == response.request.url]['category'],
 			'subcategory': subcategory.css('a::text').get(),
 			'link': subcategory.css('a').attrib['href']
  			}
+
+ 		#if not subcategories:
+ 		#    yield {
+			#'category' : targets[targets['link'] == response.request.url]['category'],
+		#	'subcategory': 'sin subcategorias',
+		#	'link': response.request.url
+ 		#	}
