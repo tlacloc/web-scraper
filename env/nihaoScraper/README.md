@@ -13,7 +13,7 @@ La spider que analiza todos los detalles de los productos desde el link padre es
 - `priceDiscount`
 - `specialPrice`
 - `productPrice`
-- `subProductName
+- `subProductName`
 - `weight`
 - `stock`
 
