@@ -64,6 +64,12 @@ class NihaoSpider(scrapy.Spider):
 
 					yield response.follow(product.css('p.remark a').attrib['href'], self.parse_details, cb_kwargs = dict(item = item))
 
+			# redirect to next page if exists
+			next_page = response.css('a.next').attrib['href']
+
+			if next_page is not None:
+				yield response.follow(next_page, callback=self.parse_product, cb_kwargs=dict(item = item))
+				
 		else:
 
 			# in each subcategory
@@ -102,8 +108,8 @@ class NihaoSpider(scrapy.Spider):
 			# redirect to next page if exists
 			next_page = response.css('a.next').attrib['href']
 
-			#if next_page is not None:
-			#	yield response.follow(next_page, callback=self.parse_product, cb_kwargs=dict(item = item))
+			if next_page is not None:
+				yield response.follow(next_page, callback=self.parse_product, cb_kwargs=dict(item = item))
 
 
 	def parse_details(self, response, item):
