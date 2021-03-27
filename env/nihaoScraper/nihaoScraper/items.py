@@ -10,7 +10,6 @@ from w3lib.html import remove_tags
 
 
 class NihaoscraperItem(scrapy.Item):
-    # define the fields for your item here like:
 
     category = scrapy.Field(input_processor = MapCompose(remove_tags), output_procesor = TakeFirst())
     subcategory = scrapy.Field(input_processor = MapCompose(remove_tags), output_procesor = TakeFirst())
@@ -27,3 +26,4 @@ class NihaoscraperItem(scrapy.Item):
     productPrice = scrapy.Field()
     weight = scrapy.Field()
     stock = scrapy.Field()
+    subProductName = scrapy.Field()

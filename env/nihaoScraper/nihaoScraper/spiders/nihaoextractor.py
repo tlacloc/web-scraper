@@ -124,12 +124,14 @@ class NihaoSpider(scrapy.Spider):
 		buy_info = response.css('div.buy-info')
 		details = json.loads(json_data)
 
+		item['product_id'] = buy_info.css('div.remark span::text').get().replace('Item No.: ','')
 		item['currencyRate'] = details['currencyRate']
 		item['priceDiscount'] = details['priceDiscount']
 
 		# some products are arrays of the same product
 		for subproduct in details['skuTieredPrices']: 
 
+			item['subProductName'] = subproduct['sku']
 			item['specialPrice'] = subproduct['specialPrice']
 			item['productPrice'] = subproduct['price']
 			item['weight'] = subproduct['weight']
