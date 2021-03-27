@@ -6,3 +6,5 @@ Para activar el env de python solo hay que haces un `cd` a esta carpeta y despu√
 
 Y ya est√°s listo para scrapear
 
+
+Dentro de la carpeta env se encuentran los proyectos
