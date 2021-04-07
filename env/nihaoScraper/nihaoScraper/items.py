@@ -14,16 +14,11 @@ class NihaoscraperItem(scrapy.Item):
     category = scrapy.Field(input_processor = MapCompose(remove_tags), output_procesor = TakeFirst())
     subcategory = scrapy.Field(input_processor = MapCompose(remove_tags), output_procesor = TakeFirst())
 
-    product_id = scrapy.Field(input_processor = MapCompose(remove_tags), output_procesor = TakeFirst())
+    product_key = scrapy.Field()
     name = scrapy.Field(input_processor = MapCompose(remove_tags), output_procesor = TakeFirst())
     link = scrapy.Field()
     price = scrapy.Field(input_processor = MapCompose(remove_tags), output_procesor = TakeFirst())
-    
-    currencyRate = scrapy.Field()
-    priceDiscount = scrapy.Field()
 
-    specialPrice = scrapy.Field()
-    productPrice = scrapy.Field()
     weight = scrapy.Field()
     stock = scrapy.Field()
     subProductName = scrapy.Field()
