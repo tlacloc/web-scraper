@@ -22,3 +22,4 @@ class NihaoscraperItem(scrapy.Item):
     weight = scrapy.Field()
     stock = scrapy.Field()
     subProductName = scrapy.Field()
+    subProductPrice = scrapy.Field()

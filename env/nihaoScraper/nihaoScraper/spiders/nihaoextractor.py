@@ -106,6 +106,7 @@ class NihaoSpider(scrapy.Spider):
 			item['subProductName'] = subproduct['sku']
 			item['weight'] = subproduct['weight']
 			item['stock'] = subproduct['inventory']
+			item['subProductPrice'] = details['currencyRate'] * subproduct['price']
 			yield item
 
 
