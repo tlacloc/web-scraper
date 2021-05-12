@@ -139,4 +139,4 @@ cython_debug/
 
 # Some local files
 .json
-.cvs
+.csv
